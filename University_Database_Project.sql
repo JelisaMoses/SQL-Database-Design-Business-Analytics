@@ -236,7 +236,7 @@ select distinct name
 from instructor
 where name not in('Mozart','Einstein')
 
--- Find the toatl number of (distinct) students who have taken course sections taught by the instructor with ID 10101
+-- Find the total number of (distinct) students who have taken course sections taught by the instructor with ID 10101
 SELECT count(distinct ID)
 from takes
 where(course_id, sec_id, semester, year) in 
@@ -244,10 +244,6 @@ where(course_id, sec_id, semester, year) in
                         from teaches
                         where teaches.ID=10101);
 
--- error 
---You’re getting this error because of this line:where(course_id, sec_id, semester, year) in (...)
--- In SQL Server, you cannot use tuple comparison like (col1, col2, col3, col4) IN (...).
--- That syntax works in some databases (like PostgreSQL), but NOT in SQL Server.
 
 -- Fix Option 1: Use EXISTS (BEST)
 SELECT COUNT(DISTINCT ID)
@@ -325,7 +321,6 @@ where unique (select R.course_id
             and R.year = 2017);
 
 -- Subqueries in the Form Clause
--- SQL allows a subquery expression to be used in the from clause
 --  Find the average instructors’ salaries of those departments where the average salary is greater than $42,000.”
 
 Select dept_name, avg_salary
@@ -334,7 +329,7 @@ from ( select dept_name, avg (salary) as avg_salary
             group by dept_name)
             where avg_salary > 42000; --(MSS does not suppose this query )
 
--- Note that we do not need to use the having clause
+
 --Another way to write above query
 
 select dept_name, avg_salary
@@ -345,7 +340,6 @@ as dept_avg (dept_name, avg_salary)
 where avg_salary > 42000;
 
 -- With Clause
--- The with clause provides a way of defining a temporary relation whose definition is available only to the query in which the with clause occurs.
 -- Find all departments with the maximum budget
 
 with max_budget (value) as
@@ -379,7 +373,7 @@ from instructor
 where department.dept_name = instructor.dept_name)
 as num_instructors
 from department;
--- Runtime error if subquery returns more than one result tuple
+
 
 -- Deletion
 --  Delete all instructors
