@@ -1,4 +1,18 @@
+/*
+========================================================
+University Database Project
 
+Author: Jelisa Moses
+
+Description:
+Designed and implemented a relational university database
+using SQL. Demonstrates relational database design,
+primary and foreign keys, JOINs, GROUP BY, HAVING,
+subqueries, Common Table Expressions (CTEs),
+window functions, and aggregate analysis.
+
+========================================================
+*/
 
 CREATE DATABASE UniversityDB;
 GO
