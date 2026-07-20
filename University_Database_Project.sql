@@ -179,7 +179,7 @@ UNION
 -- write a query to display outout of 10 + 0
 select 10 + 0
 
--- what do you think the resukt of the query below
+-- what do you think the result of the query below
 select 10 + null as OUTPUT;  -- null
 
 -- write a query to find names where salary is greater than null value
@@ -364,7 +364,6 @@ from dept_total, dept_total_avg
 where dept_total.value > dept_total_avg.value;
 
 -- Scalar Subquery
--- Scalar subquery is one which is used where a single value is expected
 --List all departments along with the number of instructors in each department
 
 select dept_name,
